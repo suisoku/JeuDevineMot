@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<xs:schema version="1.0"
+           targetNamespace="http://myGame/tux"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tux="http://myGame/tux"
+           elementFormDefault="qualified"  >
+    
+    <xs:include schemaLocation="dico.xsd"/>
+    <!-- NAME SPACE IS TO IMPORT THE NAMESPACE SO YOU CAN NAME IT NAMASPACEDIC for ex -->
+    <xs:element name="profile" type="tux:Profile"  />
+    
+    <xs:complexType name="Profile">    
+        <xs:sequence>
+            <xs:element name="name" type="xs:string" />
+            <xs:element name="avatar" type="xs:string" />
+            <xs:element name="birthday" type="xs:date" />
+            <xs:element name="games" type="tux:Games" />
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="Games">
+        <xs:sequence>
+            <xs:element name="game" type="tux:Game" minOccurs="1" maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="Game">
+        <xs:all>
+            <xs:element name="time" type="xs:positiveInteger" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="word" type="tux:Mot" />
+        </xs:all>
+        <xs:attribute name="found" type="tux:Found" use="optional" />
+        <xs:attribute name="date" type="xs:date" use="required" />
+    </xs:complexType>
+    
+    <xs:simpleType name="Found">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9][0-9][%]" />
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>

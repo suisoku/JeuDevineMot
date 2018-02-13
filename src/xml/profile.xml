@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<profile>
+<name>Alban</name>
+<avatar>tux.png</avatar>
+<birthday>2006-05-08</birthday>
+<games/>
+<game date="10/12/2017" found="0%">
+<mot niveau="0">porte</mot>
+<time>0</time>
+</game>
+<game date="10/12/2017" found="0%">
+<mot niveau="0">don</mot>
+<time>0</time>
+</game>
+<game date="10/12/2017" found="100%">
+<mot niveau="0">pompier</mot>
+<time>16</time>
+</game>
+</profile>
